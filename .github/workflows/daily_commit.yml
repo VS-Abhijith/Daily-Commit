@@ -27,5 +27,4 @@ jobs:
         env:
           PAT: ${{ secrets.PAT }}
         run: |
-          git remote set-url origin https://VS-Abhijith:${PAT}@github.com/VS-Abhijith/Daily-Commit.git
-          git push origin main
+          git push https://x-access-token:${PAT}@github.com/VS-Abhijith/Daily-Commit.git HEAD:main
