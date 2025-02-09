@@ -11,10 +11,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false  # Ensures we use PAT instead of GitHub Actions token
 
       - name: Set up Git
         run: |
-          git config --global user.name "github-actions[bot]"
+          git config --global user.name "Abhijith"
           git config --global user.email "22ds3000188@ds.study.iitm.ac.in"
 
       - name: Make a commit
@@ -24,6 +26,8 @@ jobs:
           git commit -m "Automated commit: $(date)" || echo "No changes to commit"
 
       - name: Push changes
+        env:
+          PAT: ${{ secrets.PAT }}
         run: |
-          git remote set-url origin https://x-access-token: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@github.com/VS-Abhijith/Daily-Commit.git
+          git remote set-url origin https://VS-Abhijith:${PAT}@github.com/VS-Abhijith/Daily-Commit.git
           git push origin HEAD:main
