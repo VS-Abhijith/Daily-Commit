@@ -24,8 +24,6 @@ jobs:
           git commit -m "Automated commit: $(date)" || echo "No changes to commit"
 
       - name: Push changes
-        env:
-          PAT: ${{ secrets.PAT }}
         run: |
-          git remote set-url origin https://x-access-token:${PAT}@github.com/VS-Abhijith/Daily-Commit.git
+          git remote set-url origin https://x-access-token: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@github.com/VS-Abhijith/Daily-Commit.git
           git push origin HEAD:main
