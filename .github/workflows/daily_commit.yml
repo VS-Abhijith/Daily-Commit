@@ -21,11 +21,11 @@ jobs:
         run: |
           echo "Automated commit on $(date)" >> daily_commit.log
           git add daily_commit.log
-          git commit -m "Automated commit: $(date)"
+          git commit -m "Automated commit: $(date)" || echo "No changes to commit"
 
       - name: Push changes
         env:
           PAT: ${{ secrets.PAT }}
         run: |
-          git remote set-url origin https://VS-Abhijith:${PAT}@github.com/VS-Abhijith/Daily-Commit.git
-          git push origin main
+          git remote set-url origin https://x-access-token:${PAT}@github.com/VS-Abhijith/Daily-Commit.git
+          git push origin HEAD:main
