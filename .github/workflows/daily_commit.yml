@@ -25,5 +25,5 @@ jobs:
 
       - name: Push changes
         run: |
-          git remote set-url origin https://x-access-token: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@github.com/VS-Abhijith/Daily-Commit.git
+          git remote set-url origin https://x-access-token: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@github.com/VS-Abhijith/Daily-Commit.git
           git push origin HEAD:main
