@@ -2,8 +2,8 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '30 5 * * *'  # Runs daily at 5:30 AM UTC (adjust as needed)
-  workflow_dispatch:  # Allows manual triggering
+    - cron: '30 5 * * *'  # Runs daily at 5:30 AM UTC
+  workflow_dispatch:
 
 jobs:
   commit:
@@ -22,4 +22,10 @@ jobs:
           echo "Automated commit on $(date)" >> daily_commit.log
           git add daily_commit.log
           git commit -m "Automated commit: $(date)"
-          git push
+
+      - name: Push changes
+        env:
+          PAT: ${{ secrets.PAT }}
+        run: |
+          git remote set-url origin https://VS-Abhijith:${PAT}@github.com/VS-Abhijith/Daily-Commit.git
+          git push origin main
