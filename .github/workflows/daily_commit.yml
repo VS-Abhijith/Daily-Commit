@@ -14,7 +14,7 @@ jobs:
         with:
           persist-credentials: false  # Ensures we use PAT instead of GitHub Actions token
 
-      - name: Set up Git
+      - name: Set up Git (22ds3000188@ds.study.iitm.ac.in)
         run: |
           git config --global user.name "Abhijith"
           git config --global user.email "22ds3000188@ds.study.iitm.ac.in"
